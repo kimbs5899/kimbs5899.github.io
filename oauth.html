@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>연결 코드</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .code { width:100%; min-height:7em; padding:12px; font:14px/1.5 ui-monospace, Menlo, monospace; color:var(--fg); background:transparent; border:1px solid var(--line); border-radius:8px; word-break:break-all; resize:vertical; }
+  button { margin-top:12px; padding:12px 20px; font-size:1rem; border:0; border-radius:8px; background:var(--link); color:#fff; }
+  .err { color:#c01c28; }
+</style>
+</head>
+<body>
+<main>
+<h1>유튜브 채널 연결 코드</h1>
+<p id="msg" class="muted">아래 코드를 복사해서 디스코드의 [코드 입력] 창에 붙여 넣으세요. 코드는 몇 분 뒤 만료됩니다.</p>
+<textarea id="code" class="code" readonly></textarea>
+<button id="copy" type="button">복사</button>
+<p class="muted">이 페이지는 코드를 어디에도 보내지 않습니다. 화면에 보여 주기만 합니다.</p>
+</main>
+<script>
+  // 주소창의 code·state를 "state.code" 한 줄로 보여 준다. 값은 전송하지 않는다.
+  var q = new URLSearchParams(location.search);
+  var code = q.get("code"), state = q.get("state"), error = q.get("error");
+  var box = document.getElementById("code"), msg = document.getElementById("msg");
+  if (error) {
+    msg.textContent = "연결하지 못했습니다: " + error + ". 디스코드에서 /유튜브연결 을 다시 실행하세요.";
+    msg.className = "err";
+    box.style.display = "none";
+    document.getElementById("copy").style.display = "none";
+  } else if (!code || !state) {
+    msg.textContent = "코드가 없습니다. 디스코드의 /유튜브연결 링크로 들어와야 합니다.";
+    msg.className = "err";
+    box.style.display = "none";
+    document.getElementById("copy").style.display = "none";
+  } else {
+    box.value = state + "." + code;
+    // 뒤로 가기·기록에 코드가 남지 않게 주소창에서 지운다.
+    history.replaceState(null, "", location.pathname);
+  }
+  document.getElementById("copy").addEventListener("click", function () {
+    box.select();
+    var done = function () { document.getElementById("copy").textContent = "복사됨 ✓"; };
+    if (navigator.clipboard) { navigator.clipboard.writeText(box.value).then(done, function () { document.execCommand("copy"); done(); }); }
+    else { document.execCommand("copy"); done(); }
+  });
+</script>
+</body>
+</html>
