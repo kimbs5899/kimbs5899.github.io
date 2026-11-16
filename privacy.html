@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개인정보처리방침</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>개인정보처리방침</h1>
+<p class="muted">shorts-upload · 시행일 2026년 11월 16일</p>
+
+<p>shorts-upload(이하 "이 도구")는 운영자 본인의 유튜브 채널에 영상을 올리기 위한 개인용 도구입니다.
+이 방침은 이 도구가 Google 계정과 YouTube 데이터를 어떻게 다루는지 설명합니다.</p>
+
+<h2>1. 요청하는 권한</h2>
+<p>이 도구는 Google OAuth로 <code>https://www.googleapis.com/auth/youtube.upload</code> 권한 하나만 요청합니다.
+이 권한으로는 영상을 올리는 것만 할 수 있으며, 기존 영상·댓글·구독·채널 설정을 읽거나 바꾸지 않습니다.</p>
+
+<h2>2. 다루는 정보</h2>
+<ul>
+  <li><strong>OAuth 토큰:</strong> 업로드에 필요한 인증 토큰을 운영자가 관리하는 서버에만 저장합니다.</li>
+  <li><strong>업로드 결과:</strong> 업로드한 영상의 ID와 링크를 기록해 같은 영상이 두 번 올라가지 않게 합니다.</li>
+  <li>그 밖의 개인정보(이름, 이메일, 연락처, 시청 기록 등)는 수집하지 않습니다.</li>
+</ul>
+
+<h2>3. 이용 목적</h2>
+<p>받은 권한과 정보는 운영자가 승인한 영상을 운영자의 채널에 올리는 데에만 씁니다.
+광고, 분석, 판매, 제3자 제공에 쓰지 않습니다.</p>
+
+<h2>4. 제3자 제공</h2>
+<p>Google 사용자 데이터를 제3자에게 제공하거나 판매하지 않습니다.
+이 도구의 Google 사용자 데이터 사용은 <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API 서비스 사용자 데이터 정책</a>(제한적 사용 요건 포함)을 따릅니다.
+업로드된 영상은 <a href="https://www.youtube.com/t/terms">YouTube 서비스 약관</a>과 <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>의 적용을 받습니다.</p>
+
+<h2>5. 보관과 삭제</h2>
+<ul>
+  <li>OAuth 토큰은 권한이 취소되거나 운영자가 지울 때까지 서버에 보관합니다.</li>
+  <li>업로드 기록은 중복 업로드를 막는 데 필요한 동안 보관합니다.</li>
+  <li>권한은 언제든 <a href="https://myaccount.google.com/permissions">Google 계정 → 보안 → 서드파티 액세스</a>에서 끊을 수 있습니다. 끊으면 이 도구는 더 이상 업로드할 수 없습니다.</li>
+</ul>
+
+<h2>6. 문의</h2>
+<p>이 방침에 대한 문의는 <a href="https://github.com/kimbs5899/kimbs5899.github.io/issues">GitHub Issues</a>로 남겨 주세요.</p>
+
+<h2>7. 변경</h2>
+<p>방침이 바뀌면 이 페이지에 시행일과 함께 게시합니다.</p>
+
+<footer>
+  <p><a href="index.html">홈</a></p>
+</footer>
+</main>
+</body>
+</html>
